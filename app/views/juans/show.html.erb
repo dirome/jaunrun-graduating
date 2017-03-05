@@ -1,0 +1,5 @@
+<h2> <%= @juan.lname%> </h2>
+
+<% @juan.favours.each do |favour| %>
+	<%= link_to favour.job_title, 'favours/#{@favour.id}' %>
+<% end %>

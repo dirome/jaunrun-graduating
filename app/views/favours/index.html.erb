@@ -1,0 +1,7 @@
+<% @favour.each do |f| %>
+<p> 
+<p>Job Title: <%= f.job_title %> </p>
+<p>Job location: <%= f.job_location %> </p>
+<p>Job Description: <%= f.job_description %> </p>
+<a href = "/favours/<%= f.id%>/delete"> Close Job </a>
+<% end %>
