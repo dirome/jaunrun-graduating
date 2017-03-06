@@ -20,8 +20,9 @@ class FavoursController < ApplicationController
   end
 
   def show
+   # params.require(:favour).permit(:job_title, :job_location, :job_description, :all_tags)
   	@favour = Favour.find(params[:id])
-    @juan_posts = @juan.favours
+   @juan_posts = @juan.favours
   end
 
   def delete

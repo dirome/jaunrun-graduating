@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170305162548) do
+ActiveRecord::Schema.define(version: 20170306012057) do
 
   create_table "favours", force: :cascade do |t|
     t.string   "job_title"
@@ -61,6 +61,21 @@ ActiveRecord::Schema.define(version: 20170305162548) do
     t.date     "birth_date"
     t.index ["email"], name: "index_runners_on_email", unique: true
     t.index ["reset_password_token"], name: "index_runners_on_reset_password_token", unique: true
+  end
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "post_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_taggings_on_post_id"
+    t.index ["tag_id"], name: "index_taggings_on_tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

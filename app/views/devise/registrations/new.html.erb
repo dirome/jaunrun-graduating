@@ -28,7 +28,12 @@
     <%= f.email_field :email, autofocus: true %>
   </div>
 
-
+<% if resource_name == "runners" %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :contact_number,autofocus: true %>
+  </div>
+<% end %>
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>

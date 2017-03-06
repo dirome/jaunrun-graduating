@@ -19,7 +19,7 @@
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="#">Juanrun</a>
+      <a class="navbar-brand" href="/../">Juanrun</a>
      
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
@@ -28,15 +28,45 @@
          
 
           <% if current_juan %> 
+           <li class="nav-item active">
+            <a class="nav-link" href= "/../juans/<%=current_juan.id%>" > Profile <span class="sr-only">(current)</span></a>
+          </li>   
+           <li class="nav-item active">
+            <a class="nav-link" href= "/../../" > Favours <span class="sr-only">(current)</span></a>
+          </li>
           <li class="nav-item active">
             <a class="nav-link" href= "/favours/new" >New Favour <span class="sr-only">(current)</span></a>
           </li>
+      
+         <li class="nav-item active">
+            <a class="nav-link" href= "/../juans/edit" > Settings <span class="sr-only">(current)</span></a>
+          </li>         
+        
+         <button class = "button"><%= link_to "Log out", destroy_juan_session_path, method: :delete, confirm: "Are you sure?"%></button>
+
+       <% elsif current_runner %> 
+           <li class="nav-item active">
+            <a class="nav-link" href= "/../../" > Favours <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href= "/favours/new" >New Favour <span class="sr-only">(current)</span></a>
+          </li>
+      
+         <li class="nav-item active">
+            <a class="nav-link" href= "/../runners/edit" > Settings <span class="sr-only">(current)</span></a>
+          </li>         
+        
+         <button class = "button"><%= link_to "Log out", destroy_runner_session_path, method: :delete, confirm: "Are you sure?"%></button>
 
           
-        
-         <%= link_to "Log out", destroy_juan_session_path, method: :delete, confirm: "Are you sure?"%>
-          
         <% else %>
+        <li class="nav-item active">
+              <a class="nav-link" href= "/../juans/sign_up" > Sign up as Juan <span class="sr-only">(current)</span></a>
+         
+        </li>
+         <li class="nav-item active">
+                 <a class="nav-link" href= "/../runners/sign_up" > Sign up as Runner <span class="sr-only">(current)</span></a>   
+        </li>
         <li class="nav-item active">
                  <a class="nav-link" href= "/../juans/sign_in" > Sign in as Juan <span class="sr-only">(current)</span></a>
          
