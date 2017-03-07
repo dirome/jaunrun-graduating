@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170307035711) do
+ActiveRecord::Schema.define(version: 20170307044456) do
 
   create_table "average_caches", force: :cascade do |t|
     t.integer  "rater_id"
@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 20170307035711) do
     t.string   "fname"
     t.string   "lname"
     t.string   "birth_date"
+    t.integer  "contact_number"
+    t.string   "location"
     t.index ["email"], name: "index_juans_on_email", unique: true
     t.index ["reset_password_token"], name: "index_juans_on_reset_password_token", unique: true
   end
@@ -102,6 +104,8 @@ ActiveRecord::Schema.define(version: 20170307035711) do
     t.string   "lname"
     t.string   "uname"
     t.date     "birth_date"
+    t.integer  "contact_number"
+    t.string   "location"
     t.index ["email"], name: "index_runners_on_email", unique: true
     t.index ["reset_password_token"], name: "index_runners_on_reset_password_token", unique: true
   end
