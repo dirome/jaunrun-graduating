@@ -42,7 +42,7 @@
             <a class="nav-link" href= "/../juans/edit" > Settings <span class="sr-only">(current)</span></a>
           </li>         
         
-         <button class = "button"><%= link_to "Log out", destroy_juan_session_path, method: :delete,data: { confirm: "Are you sure?" }%></button>
+         <button class = "button"><%= link_to "Log out", destroy_juan_session_path, method: :delete, data: { confirm: "Are you sure?" }%></button>
 
        <% elsif current_runner %> 
            <li class="nav-item active">
@@ -52,10 +52,9 @@
       
          <li class="nav-item active">
             <a class="nav-link" href= "/../runners/edit" > Settings <span class="sr-only">(current)</span></a>
-          </li>         
-        
-         <button class = "button"><%= link_to "Log out", destroy_runner_session_path,data: { confirm: "Are you sure?" }%></button>
+          </li>   
 
+           <button class = "button"><%= link_to "Log out", destroy_runner_session_path, method: :delete, data: { confirm: "Are you sure?" }%></button>
           
         <% else %>
         <li class="nav-item active">
@@ -83,8 +82,10 @@
          
         </ul>
         <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search Favours">
+        <%form_tag "/favours/find" do %>
+        <%= text_field_tag :search_string %>
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <% end %>
         </form>
       </div>
     </nav>

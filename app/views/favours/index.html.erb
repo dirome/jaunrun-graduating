@@ -1,10 +1,11 @@
 <% @favour.each do |f| %>
 <p> 
 <div class = "container">
+<span class = "border-0">
 <p><strong>Job Title:</strong> <%= f.job_title %> </p>
 <p><strong>Job location:</strong> <%= f.job_location %> </p>
 <p><strong>Job Description:</strong> <%= f.job_description %> </p>
-
+</span>
 
 <% if current_runner %>
 
