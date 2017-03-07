@@ -1,13 +1,16 @@
 <% @favour.each do |f| %>
 <p> 
-<p>Job Title: <%= f.job_title %> </p>
+<div class = "container">
+<p><strong>Job Title:</strong> <%= f.job_title %> </p>
+<p><strong>Job location:</strong> <%= f.job_location %> </p>
+<p><strong>Job Description:</strong> <%= f.job_description %> </p>
 
-<p>Job location: <%= f.job_location %> </p>
-<p>Job Description: <%= f.job_description %> </p>
-<% if current_juan %>
-<a href = "/favours/<%= f.id%>/delete"> Close Job </a>
-<$ elsif current_runner %>
+
+<% if current_runner %>
 
 <button class = "button"><%= link_to "Apply", '/../' %></button>
+</div>
+<% else %>
+
 <% end %>
 <% end %>

@@ -1,5 +1,7 @@
-<h2> <%= @juan.lname%> </h2>
+<strong><h2> <%= @juan.lname%> </h2>, <h2> <%= @juan.fname%></h2></strong>
 
 <% @juan.favours.each do |favour| %>
-	<%= link_to favour.job_title, 'favours/#{@favour.id}' %>
+  <a href = "/favours/<%= favour.id%>"> <%=favour.job_title %></a>
+ <a href = "/favours/<%= favour.id%>/delete"> Close Job </a>
+	<br> <%= favour.job_description %> </br>
 <% end %>

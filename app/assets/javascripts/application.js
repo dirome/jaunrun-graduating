@@ -11,46 +11,8 @@
 // about supported directives.
 //
 //= require jquery
-
+//= require jquery.raty
+//= require ratyrate
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-
-<li>
-           <%= link_to "Log out", destroy_juan_session_path, method: :delete, class: "sr-only" %>
-          
-        </li>
-
-
- 
-        <li class="nav-item active">
-          
-          <%= link_to "Log out", destroy_juan_session_path, method: :delete, class:"sr-only" %>
-        </li>
-      
-        
-<li class="nav-item active">
-         <%= link_to "New Favour", new_favour_path, class:"sr-only" %>
-          </li>
-
- <% if current_juan %>
-        <li class="nav-item active">
-         <%= link_to "Log out", destroy_juan_session_path, method: :delete, class:"sr-only" %>
-        </li>
-        
-        <% else %>
-         <li class="nav-item active">
-         <%= link_to "Log in", new_juan_session_path, class:"sr-only" %>
-          </li>
-          <li class="nav-item active">
-         <%= link_to "Register", new_juan_registration_path, class:"sr-only" %>
-          </li>
-        <% end %>
-
-         <div class = "row">
-     <div class= "col-lg-12-text-center">
-     <% flash.each do |a, b| %>
-     <div class = "alert alert-success"> <%= b %> </div>
-     <% end %>
-     <%= yield %>
-     </div>

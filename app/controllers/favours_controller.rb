@@ -17,19 +17,13 @@ class FavoursController < ApplicationController
 
   def index
   	@favour = Favour.all
+    
   end
 
   def show
    # params.require(:favour).permit(:job_title, :job_location, :job_description, :all_tags)
   	@favour = Favour.find(params[:id])
-   @juan_posts = @juan.favours
-  end
-
-  def delete
-    @attend = Attend.find(params[:id])
-    @attend.destroy()
-
-    redirect_to "/../../"
+   # @juan_posts = @juan.favours
   end
 
   def home

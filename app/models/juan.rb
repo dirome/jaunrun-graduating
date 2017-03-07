@@ -4,5 +4,6 @@ class Juan < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-	has_many :favours
+  has_many :favours
+  ratyrate_rateable 'prof'
 end
