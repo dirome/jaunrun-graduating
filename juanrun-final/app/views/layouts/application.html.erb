@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Juanrun</title>
+    <%= csrf_meta_tags %>
+
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/freelancer.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/thumbnail-gallery.css" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <nav id="mainNav" class="navbar navbar-default navbar-toggleable-md navbar-inverse bg-inverse navbar-fixed-top navbar-custom">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="/../../">JuanRun</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                  <% if current_juan %> 
+                    
+                      <li class="nav-link">
+                        <a href="/juans/<%=current_juan.id%>/">Hi, <%=current_juan.first_name%></a>
+                      </li> 
+                    <% elsif current_runner %>
+                      <li class="nav-link">
+                        <a href="/runners/<%=current_runner.id%>/">Hi, <%=current_runner.first_name%></a>
+                      </li> 
+                      <% else %>
+                  <%end%>
+
+                      <li class="nav-link">
+                        <a href="/../../">About</a>
+                      </li> 
+                      <li class="nav-link">
+                        <a href="/index">Jobs</a>
+                      </li> 
+                  
+                    <% if current_juan %> 
+                    <li class="nav-link">
+                        <a href="/posts/new">Add Job</a>
+                    </li>
+                     <li class="nav-link">
+                        <a href="/../juans/edit">Settings</a>
+                    </li>
+                    <li class = "nav-link">
+                    <%= link_to "Log out", destroy_juan_session_path, method: :delete, data: {confirm: "Are you sure?" }%>
+                    </li>
+
+                     <%elsif current_runner %> 
+                     <li class="nav-link">
+                        <a href="/../runners/edit">Settings</a>
+                    </li>
+                      
+                    <li class = "nav-link">
+                    <%= link_to "Log out", destroy_juan_session_path, method: :delete, data: {confirm: "Are you sure?" }%>
+                    </li>
+                <% else %>
+                <li class="dropdown">
+                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sign Up
+                 <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                   <li><a href="/juans/sign_up">Juan</a></li>
+                  <li><a href="runners/sign_up">Runner</a></li>
+                 </ul>
+                </li>
+                  <li class="dropdown">
+                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sign In
+                 <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                   <li><a href="/juans/sign_in">Juan</a></li>
+                  <li><a href="runners/sign_in">Runner</a></li>
+                 </ul>
+                </li>
+             <% end %>
+                </ul>
+            </div>   <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    
+  <div class = "container">
+  <p class = "notice"><%= notice %> </p>
+  <p class = "alert"> <% alert %> </p>
+    <%= yield %>
+  </div>
+    
+  </body>
+  
+</html>

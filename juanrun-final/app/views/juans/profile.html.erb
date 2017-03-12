@@ -1,0 +1,23 @@
+<div style="top: 100px">
+<div class = "container"><strong><h2> <%= current_juan.first_name %>, <%= current_juan.last_name%></h2></strong>
+
+ <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Current Jobs Offered</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+<div class = "container"> 
+<% @juan.posts.each do |post| %>
+  <div class = "container">
+  <span class = "border-0">
+  <a href = "/posts/<%= post.id%>"> <%=post.title %></a>
+
+  <br> <%= post.description %> </br>
+  <br> <%= post.all_tags %> </br>
+  </span>
+  </div>
+<% end %>
+</div>
+</div>
+</div>

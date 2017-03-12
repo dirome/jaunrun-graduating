@@ -1,0 +1,11 @@
+<div class = "container">
+<div id = "page_wrapper">
+<%= form_for @post do |f| %>
+<p><%= f.label :title %> <%= f.text_field :title %> </p>
+<p><%= f.label :description %> <%= f.text_area :description %></p>
+<p><%= f.label :location %> <%= f.text_field :location %></p>
+<p><%= f.label :all_tags %> <%= f.text_field :all_tags %></p>
+<%= f.submit "Publish Job" %>
+<% end %>
+</div>
+</div>
